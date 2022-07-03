@@ -9,7 +9,7 @@ const HandView = () => {
   <div>
     {
       hand &&
-      hand.map((card) => <p>{card.code}</p>)
+      hand.map((card, idx) => <div key={idx}>{card.code}</div>)
     }
   </div>
   )
