@@ -1,46 +1,26 @@
-# Getting Started with Create React App
+# Where to find this Project
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project was deployed using Vercel and can be found [here](https://deck-of-cards-chapmanm3.vercel.app)
 
-## Available Scripts
+## Global Context
 
-In the project directory, you can run:
+This project uses a React Context provider which wraps and passes all the buisness logic around managing decks / hands through the app.
+- Redux could have been used here but this application was small enough that context providers sufficed.
 
-### `npm start`
+## Business Logic
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+All logic around retreiving and parsing Decks / Hands can be found in [utils](src/utils/utils.ts).
+ - This includes a large function named `calculateBestHand()` which holds all the logic for calculating the best hand given an Array of 5 Card objects.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Types
 
-### `npm test`
+The [types](src/types/index.ts) file contains all the projects types (Hands, Cards, etc).
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## TODOS:
 
-### `npm run build`
+This took ~5+ hours to complete, that being said with more time there are a few things I'd like to add.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+[] Styling: Theres almost no styling in this app minus one div with inline styles. Given more time I'd like to make this app dark theme, style the buttons, and give the hand list some love.
+[] Images: The Deck of Cards API provies URL's to images of the playing cards. That would be a nice add with some styling to render each cards image.
+[] Clean up / Optimize: The util function to calculate the best hand is very large. It can for sure be broken out into 2-3 smaller functions making it more testable. I'm also sure the algorithms are not the optimal solution though clever in some [spots](https://github.com/chapmanm3/deck-of-cards/blob/c9b00a4366a2a9dd6cc4a3c87e36faeeadc5d209/src/utils/utils.ts#L127).
+[] Testing: Though the `calculateBestHand` function is thoroughly testing the rest of the app is not.
